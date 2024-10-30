@@ -1,4 +1,8 @@
-df = pd.read_excel("cadastroprocessos.xlsx", engine="openpyxl")
+import pandas as pd
+import streamlit as st
+import openpyxl
+
+df = pd.read_excel("cadastroprocessos.xlsx")
 
 
 def quantidade_autor():   #retornar a quantidade de autores de forma unica, para ter a contagem correta
