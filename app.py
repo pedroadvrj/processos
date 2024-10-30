@@ -1,12 +1,9 @@
 import pandas as pd
 import streamlit as st
-import openpyxl
 
-df = pd.read_excel("cadastroprocessos.xlsx")
+import pandas as pd
 
-
-def quantidade_autor():   #retornar a quantidade de autores de forma unica, para ter a contagem correta
-    return len(df["autor"].unique())
+df = pd.read_csv("cadastroprocessos.csv", header=None, encoding="ISO-8859-1", names=["index_acao", "nomecliente", "outra_parte","numero_processo", "comarca", "vara", "tipo_de_acao"])
 
 
 def quantidade_processos():
@@ -15,11 +12,10 @@ def quantidade_processos():
 def busca_por_nome(nome):
     # Filtra o DataFrame com base no nome informado
     
-    processos = df[df["autor"].str.contains(nome, case=False, na=False)]
+    processos = df[df["nomecliente"].str.contains(nome, case=False, na=False)]
 
     if not processos.empty:
         numeros_processos = processos["numero_processo"].tolist()
-        numeros_reu = processos["vara"].tolist()
         st.write(f"Processos encontrados de {nome}:")
         for numero in numeros_processos:
             st.write(f"• Processo nº {numero}")
@@ -40,11 +36,8 @@ if name_input:
 
 st.divider()
 
-st.write(f"Números de processos cadastrados: {quantidade_processos()}")
-
 st.divider()
 
-st.write(f"quantida de clientes: {quantidade_autor()}")
 
 
 
