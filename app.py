@@ -1,8 +1,6 @@
 import pandas as pd
 import streamlit as st
 
-import pandas as pd
-
 df = pd.read_csv("cadastroprocessos.csv", header=None, encoding="ISO-8859-1", names=["index_acao", "nomecliente", "outra_parte","numero_processo", "comarca", "vara", "tipo_de_acao"])
 
 
