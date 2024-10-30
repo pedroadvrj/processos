@@ -1,6 +1,7 @@
 import pandas as pd
-import openpyxl
 import streamlit as st
+import openpyxl
+
 
 df = pd.read_excel("cadastroprocessos.xlsx")
 
